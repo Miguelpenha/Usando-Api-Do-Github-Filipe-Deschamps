@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
 export default function Blogs(props) {
     return (
         <main>
-            <h1>Nome Da Usuário: {props.nome}</h1>
+            <h1>Nome Do Usuário: {props.nome}</h1>
             <h1>Número De Seguidores: {props.seguidores}</h1>
             <h1>Número De Repositórios: {props.repositórios}</h1>
         </main>
