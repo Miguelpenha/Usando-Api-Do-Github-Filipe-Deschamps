@@ -1,3 +1,5 @@
+import styles from '../components/styles.module.css'
+
 export async function getStaticPaths() {
     return {
         paths: [],
@@ -30,10 +32,15 @@ export async function getStaticProps(context) {
 }
 export default function Contas(props) {
     return (
-        <main>
-            <h1>Nome Do Usuário: {props.nome}</h1>
-            <h1>Número De Seguidores: {props.seguidores}</h1>
-            <h1>Número De Repositórios: {props.repositórios}</h1>
-        </main>
+        <>
+            <head>
+                <title>Conta: {props.nome}</title>
+            </head>
+            <main className={styles.main}>
+                <h1>Nome Do Usuário: {props.nome}</h1>
+                <h1>Número De Seguidores: {props.seguidores}</h1>
+                <h1>Número De Repositórios: {props.repositórios}</h1>
+            </main>
+        </>
     )
 }

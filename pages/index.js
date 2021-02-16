@@ -1,3 +1,14 @@
+import styles from './components/styles.module.css'
+
 export default function Home() {
-    return <h1>Home</h1>
+    return (
+        <>
+            <head>
+                <title>Home</title>
+            </head>
+            <main className={styles.main}>
+                <h1>Home</h1>
+            </main>
+        </>
+    )
 }
