@@ -4,11 +4,16 @@ export default function Home() {
     if (typeof window !== 'undefined') {
         var form = document.getElementById('formulario');
         var campo = document.getElementById('campo');
-
-        form.addEventListener('submit', function(e) {
-            window.location.replace('https://usando-api-do-github-filipe-deschamps.vercel.app/contas/'+campo.value)
-            e.preventDefault();
-        });
+        try {
+            form.addEventListener('submit', function(e) {
+                window.location.replace('https://usando-api-do-github-filipe-deschamps.vercel.app/contas/'+campo.value)
+                e.preventDefault();
+            });
+        }
+        catch {
+            
+        }
+        
     }
     return (
         <>

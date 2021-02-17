@@ -1,4 +1,6 @@
 import styles from '../components/styles.module.css'
+import Link from 'next/link'
+import Voltar from '../voltar'
 
 export async function getStaticPaths() {
     return {
@@ -37,6 +39,7 @@ export default function Contas(props) {
                 <title>Conta: {props.nome}</title>
             </head>
             <main className={styles.main}>
+                <Voltar></Voltar>
                 <h1>Nome Do Usuário: {props.nome}</h1>
                 <h1>Número De Seguidores: {props.seguidores}</h1>
                 <h1>Número De Repositórios: {props.repositórios}</h1>
