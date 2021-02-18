@@ -37,6 +37,7 @@ export async function getStaticProps(context) {
             organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].name}, `
         }
         quant_orgs =- 1
+        console.log(quant_orgs)
     }
     if (organizações.length === 0) {
         organizações = 'Nenhuma'
