@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
     );
     const dadosReposJson = await dadosRepos.json()
     const dadosOrgs = await fetch(
-        `https://api.github.com/users/${contaGithub}/orgs`
+        `https://api.github.com/users/${contaGithub}/repos`
     )
     const dadosOrgsJson = await dadosOrgs.json()
     var nome = ''
