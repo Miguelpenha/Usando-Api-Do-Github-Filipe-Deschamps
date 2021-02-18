@@ -1,7 +1,6 @@
 import styles from '../components/styles.module.css'
 import Link from 'next/link'
 import Voltar from '../components/voltar.module'
-import Image from 'next/image'
 
 export async function getStaticPaths() {
     return {
@@ -41,7 +40,7 @@ export default function Contas(props) {
             </head>
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
-                <Image src="https://avatars.githubusercontent.com/u/65141147?v=4" width="32" height="32"/>
+                <img src="https://avatars.githubusercontent.com/u/65141147?v=4" width="32" height="32"/>
                 <h1>Nome Do Usuário: {props.nome}</h1>
                 <h1>Número De Seguidores: {props.seguidores}</h1>
                 <h1>Número De Repositórios: {props.repositórios}</h1>
