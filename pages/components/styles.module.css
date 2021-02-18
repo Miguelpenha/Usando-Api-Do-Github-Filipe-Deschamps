@@ -8,3 +8,6 @@
 .bt_voltar_hover:hover{
     opacity: 80%;
 }
+.avatar{
+    border-radius: 50%;
+}
