@@ -1,6 +1,6 @@
 import styles from '../components/styles.module.css'
 import Link from 'next/link'
-import Voltar from '../voltar'
+import Voltar from '../components/voltar.module'
 
 export async function getStaticPaths() {
     return {
