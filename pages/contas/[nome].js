@@ -32,9 +32,9 @@ export async function getStaticProps(context) {
     var organizações = ''
     while (quant_orgs > 0) {
         if (quant_orgs === 1) {
-            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].login}`
+            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].name}`
         }else {
-            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].login}, `
+            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].name}, `
         }
         quant_orgs =- 1
         break
