@@ -29,7 +29,8 @@ export async function getStaticProps(context) {
             seguidores: await dadosJson.followers,
             repositórios: await dadosJson.public_repos,
             nome: nome,
-            avatar: await dadosJson.avatar_url
+            avatar: await dadosJson.avatar_url,
+            nick: contaGithub
         }
     }
 }
@@ -41,7 +42,9 @@ export default function Contas(props) {
             </head>
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
-                <img src={props.avatar} width="96" height="96" className={styles.avatar} />
+                <a href={'https://github.com/'+props.nick}>
+                    <img src={props.avatar} width="96" height="96" className={styles.avatar}/>
+                </a>
                 <h1>Nome Do Usuário: {props.nome}</h1>
                 <h1>Número De Seguidores: {props.seguidores}</h1>
                 <h1>Número De Repositórios: {props.repositórios}</h1>
