@@ -42,7 +42,7 @@ export default function Contas(props) {
             </head>
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
-                <a href={'https://github.com/'+props.nick}>
+                <a href={'https://github.com/'+props.nick} target="_blank" rel="external">
                     <img src={props.avatar} width="96" height="96" className={styles.avatar}/>
                 </a>
                 <h1>Nome Do Usuário: {props.nome}</h1>
