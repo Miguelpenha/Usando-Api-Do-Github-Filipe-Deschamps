@@ -47,7 +47,9 @@ export default function Contas(props) {
                 </a>
                 <h1>Nome Do Usuário: {props.nome}</h1>
                 <h1>Número De Seguidores: {props.seguidores}</h1>
-                <h1>Número De Repositórios: {props.repositórios}</h1>
+                <a href={'https://github.com/'+props.nick+'?tab=repositories'}>
+                    <h1>Número De Repositórios: {props.repositórios}</h1>
+                </a>
             </main>
         </>
     )
