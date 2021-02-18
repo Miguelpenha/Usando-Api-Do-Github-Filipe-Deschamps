@@ -18,11 +18,29 @@ export async function getStaticProps(context) {
       `https://api.github.com/users/${contaGithub}/repos`
     );
     const dadosReposJson = await dadosRepos.json()
+    const dadosOrgs = await fetch(
+        `https://api.github.com/users/${contaGithub}/orgs`
+    )
+    const dadosOrgsJson = await dadosOrgs.json()
     var nome = ''
     if (dadosJson.name === null) {
         nome = 'nulo'
     }else {
         nome = dadosJson.name
+    }
+    var quant_orgs = dadosOrgsJson.length
+    var organizações = ''
+    while (quant_orgs > 0) {
+        if (quant_orgs === 0) {
+            organizações =+ dadosOrgsJson[quant_orgs-1].login
+        }else {
+            organizações =+ dadosOrgsJson[quant_orgs-1].login+', '
+        }
+        quant_orgs =- 1
+        break
+    }
+    if (organizações.length === 0) {
+        organizações = 'Nenhuma'
     }
     return {
         props: {
@@ -30,7 +48,8 @@ export async function getStaticProps(context) {
             repositórios: await dadosJson.public_repos,
             nome: nome,
             avatar: await dadosJson.avatar_url,
-            nick: contaGithub
+            nick: contaGithub,
+            organizações: organizações,
         }
     }
 }
@@ -43,13 +62,24 @@ export default function Contas(props) {
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
                 <a href={'https://github.com/'+props.nick} target="_blank" rel="external">
-                    <img src={props.avatar} width="96" height="96" className={styles.avatar}/>
+                    <img src={props.avatar} width="128" height="128" className={styles.avatar}/>
                 </a>
-                <h1>Nome Do Usuário: {props.nome}</h1>
-                <h1>Número De Seguidores: {props.seguidores}</h1>
-                <a href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external">
-                    <h1>Número De Repositórios: {props.repositórios}</h1>
-                </a>
+                <div className={styles.dados}>
+                    <h1>Nome Do Usuário: {props.nome}</h1>
+                    <a href={'https://github.com/'+props.nick+'?tab=followers'} target="_blank" rel="external" className={styles.link_conta}>
+                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Número De Seguidores: {props.seguidores}</span>
+                    </a>
+                    <br/>
+                    <br/>
+                    <a href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external" className={styles.link_conta}>
+                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Número De Repositórios: {props.repositórios}</span>
+                    </a>
+                    <br/>
+                    <br/>
+                    <a href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external" className={styles.link_conta}>
+                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Organizações: {props.organizações}</span>
+                    </a>
+                </div>
             </main>
         </>
     )
