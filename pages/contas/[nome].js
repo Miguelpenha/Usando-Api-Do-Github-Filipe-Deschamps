@@ -41,7 +41,7 @@ export default function Contas(props) {
             </head>
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
-                <img src={props.avatar} width="64" height="64" className={styles.avatar} />
+                <img src={props.avatar} width="96" height="96" className={styles.avatar} />
                 <h1>Nome Do Usuário: {props.nome}</h1>
                 <h1>Número De Seguidores: {props.seguidores}</h1>
                 <h1>Número De Repositórios: {props.repositórios}</h1>
