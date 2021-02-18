@@ -1,3 +1,10 @@
 .main {
     font-family: Arial, Helvetica, sans-serif;
 }
+.bt_voltar_hover{
+    transition-timing-function: linear;
+    transition-duration: 0.1s;
+}
+.bt_voltar_hover:hover{
+    opacity: 80%;
+}
