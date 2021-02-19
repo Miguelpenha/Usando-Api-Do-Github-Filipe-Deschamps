@@ -28,16 +28,15 @@ export async function getStaticProps(context) {
     }else {
         nome = dadosJson.name
     }
-    var quant_orgs = dadosOrgsJson.length
     var organizações = ''
-    while (quant_orgs > -1) {
-        if (quant_orgs === 0) {
-            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].name}`
+    var quant_orgs = dadosOrgsJson.length
+    while (quant_orgs > 0) {
+        if (quant_orgs !== 0) {
+            organizações += dadosOrgsJson.login[quant_orgs]+', '
         }else {
-            organizações = `${organizações}${dadosOrgsJson[quant_orgs-1].name}, `
+            organizações += dadosOrgsJson.login[quant_orgs]
         }
-        quant_orgs =- 1
-        console.log(quant_orgs)
+        quant_orgs = quant_orgs-1
     }
     if (organizações.length === 0) {
         organizações = 'Nenhuma'
