@@ -30,12 +30,8 @@ export async function getStaticProps(context) {
     }
     var organizações = ''
     var quant_orgs = dadosOrgsJson.length
-    while (quant_orgs > 0) {
-        if (quant_orgs !== 0) {
-            organizações += dadosOrgsJson.login[quant_orgs]+', '
-        }else {
-            organizações += dadosOrgsJson.login[quant_orgs]
-        }
+    while (quant_orgs > -1) {
+        console.log(dadosOrgsJson[quant_orgs])
         quant_orgs = quant_orgs-1
     }
     if (organizações.length === 0) {
