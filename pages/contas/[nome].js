@@ -45,6 +45,7 @@ export async function getStaticProps(context) {
             avatar: await dadosJson.avatar_url,
             nick: contaGithub,
             organizações: organizações,
+            criado_em: dadosJson.created_at
         }
     }
 }
@@ -52,6 +53,7 @@ export default function Contas(props) {
     return (
         <>
             <head>
+                <link rel="canonical" href="https://usando-api-do-github-filipe-deschamps.vercel.app/" />
                 <title>Conta: {props.nome}</title>
             </head>
             <main className={styles.main}>
@@ -60,20 +62,31 @@ export default function Contas(props) {
                     <img src={props.avatar} width="128" height="128" className={styles.avatar}/>
                 </a>
                 <div className={styles.dados}>
-                    <h1>Nome Do Usuário: {props.nome}</h1>
-                    <a href={'https://github.com/'+props.nick+'?tab=followers'} target="_blank" rel="external" className={styles.link_conta}>
-                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Número De Seguidores: {props.seguidores}</span>
-                    </a>
-                    <br/>
-                    <br/>
-                    <a href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external" className={styles.link_conta}>
-                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Número De Repositórios: {props.repositórios}</span>
-                    </a>
-                    <br/>
-                    <br/>
-                    <a href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external" className={styles.link_conta}>
-                        <span style={{textDecoration: 'none'}} className={styles.tit_conta}>Organizações: {props.organizações}</span>
-                    </a>
+                    <h1 className={styles.tit_conta}>Nome Do Usuário: 
+                        <a href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conta} className={styles.link_conte} style={{textDecoration: 'none'}}>
+                            {props.nome}
+                        </a>
+                    </h1>
+                    <h1 className={styles.tit_conta}>Número De Seguidores: 
+                        <a href={'https://github.com/'+props.nick+'?tab=followers'} target="_blank" rel="external" className={styles.link_conta} className={styles.link_conte} style={{textDecoration: 'none'}}>
+                            {props.seguidores}
+                        </a>
+                    </h1>
+                    <h1 className={styles.tit_conta}>Número De Repositórios: 
+                        <a className={styles.link_conta} href={'https://github.com/'+props.nick+'?tab=repositories'} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                            {props.repositórios}
+                        </a>
+                    </h1>
+                    <h1 className={styles.tit_conta}>Organizações: 
+                        <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                            {props.organizações}
+                        </a>
+                    </h1>
+                    <h1 className={styles.tit_conta}>Começou em:  
+                        <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                            {props.criado_em}
+                        </a>
+                    </h1>
                 </div>
             </main>
         </>

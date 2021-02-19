@@ -20,11 +20,9 @@
 }
 .link_conta{
     text-decoration: none;
-    color: black;
 }
 .link_conta:hover{
     text-decoration: underline;
-    color: rgb(0, 110, 255);
 }
 .avatar:hover{
     border: 2px solid rgb(0, 110, 255);
@@ -41,4 +39,10 @@
     position: absolute;
     left: 10px;
     top: 140px;
+}
+.link_conte{
+    color: rgb(0, 110, 255);
+}
+.link_conte:hover{
+    text-decoration: underline;
 }
