@@ -29,13 +29,12 @@ export async function getStaticProps(context) {
         nome = dadosJson.name
     }
     var organizações = ''
-    var quant_orgs = dadosOrgsJson.length
-    while (quant_orgs > -1) {
-        console.log(dadosOrgsJson[quant_orgs])
-        quant_orgs = quant_orgs-1
-    }
-    if (organizações.length === 0) {
-        organizações = 'Nenhuma'
+    for (var quant_orgs = 0;quant_orgs < dadosOrgsJson.length;quant_orgs++) {
+        if (quant_orgs < dadosOrgsJson.length) {
+            organizações += dadosOrgsJson[quant_orgs].name+', '
+        } else {
+            organizações += dadosOrgsJson[quant_orgs].name
+        }
     }
     return {
         props: {
