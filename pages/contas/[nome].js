@@ -29,6 +29,7 @@ export async function getStaticProps(context) {
         nome = dadosJson.name
     }
     var organizações = ''
+<<<<<<< Updated upstream
     var quant_orgs = dadosOrgsJson.length
     while (quant_orgs > -1) {
         console.log(dadosOrgsJson[quant_orgs])
@@ -36,6 +37,11 @@ export async function getStaticProps(context) {
     }
     if (organizações.length === 0) {
         organizações = 'Nenhuma'
+=======
+    var quant_orgs = 0
+    for (organizações; quant_orgs < dadosOrgsJson.length;quant_orgs++) {
+        console.log(dadosOrgsJson[quant_orgs])
+>>>>>>> Stashed changes
     }
     return {
         props: {
@@ -44,8 +50,12 @@ export async function getStaticProps(context) {
             nome: nome,
             avatar: await dadosJson.avatar_url,
             nick: contaGithub,
+<<<<<<< Updated upstream
             organizações: organizações,
             criado_em: dadosJson.created_at
+=======
+            organizações: 'organizações',
+>>>>>>> Stashed changes
         }
     }
 }
