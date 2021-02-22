@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
     }else {
         nome = dadosJson.name
     }
-    var organizações = ''
+    var organizações = []
     for (var quant_orgs = 0;quant_orgs < dadosOrgsJson.length;quant_orgs++) {
         if (quant_orgs < dadosOrgsJson.length-1) {
             organizações += dadosOrgsJson[quant_orgs].name+', '
@@ -53,8 +53,8 @@ export default function Contas(props) {
         var cont = 0
         while (true) {
             return (
-                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+String(props.organizações).split(',')[cont]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
-                    {props.organizações}
+                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações[cont]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                    {props.organizações[cont]}
                 </a>
             )
             cont ++
