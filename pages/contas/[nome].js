@@ -31,9 +31,9 @@ export async function getStaticProps(context) {
     var organizações = []
     for (var quant_orgs = 0;quant_orgs < dadosOrgsJson.length;quant_orgs++) {
         if (quant_orgs < dadosOrgsJson.length-1) {
-            organizações += dadosOrgsJson[quant_orgs].name+', '
+            organizações.push(dadosOrgsJson[quant_orgs].name+', ')
         } else {
-            organizações += dadosOrgsJson[quant_orgs].name
+            organizações.push(dadosOrgsJson[quant_orgs].name)
         }
     }
     return {
@@ -50,14 +50,12 @@ export async function getStaticProps(context) {
 }
 export default function Contas(props) {
     function organizações() {
-        var cont = 0
-        while (true) {
+        while (props.organizações) {
             return (
                 <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
                     {props.organizações}
                 </a>
             )
-            cont ++
         }
     }
     return (
