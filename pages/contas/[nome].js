@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
     }
     var organizações = ''
     for (var quant_orgs = 0;quant_orgs < dadosOrgsJson.length;quant_orgs++) {
-        if (quant_orgs < dadosOrgsJson.length) {
+        if (quant_orgs < dadosOrgsJson.length-1) {
             organizações += dadosOrgsJson[quant_orgs].name+', '
         } else {
             organizações += dadosOrgsJson[quant_orgs].name
@@ -49,6 +49,17 @@ export async function getStaticProps(context) {
     }
 }
 export default function Contas(props) {
+    function organizações() {
+        var cont = 0
+        while (true) {
+            return (
+                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+String(props.organizações).split(',')} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                    {props.organizações}
+                </a>
+            )
+            cont ++
+        }
+    }
     return (
         <>
             <head>
@@ -77,9 +88,7 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
-                            {props.organizações}
-                        </a>
+                        {organizações()}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
