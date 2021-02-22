@@ -32,9 +32,9 @@ export async function getStaticProps(context) {
     var organizações = []
     for (var quant_orgs = 0;quant_orgs < dadosOrgsJson.length;quant_orgs++) {
         if (quant_orgs < dadosOrgsJson.length-1) {
-            organizações.push(dadosOrgsJson[quant_orgs].name+', ')
+            organizações.push(dadosOrgsJson[quant_orgs].login+', ')
         } else {
-            organizações.push(dadosOrgsJson[quant_orgs].name)
+            organizações.push(dadosOrgsJson[quant_orgs].login)
         }
     }
     return {
