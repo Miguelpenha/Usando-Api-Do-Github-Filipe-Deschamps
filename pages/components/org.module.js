@@ -1,11 +1,11 @@
 import styles from '../components/styles.module.css'
 
 export default function Org(props) {
-    if (props.org.length == 0) {
+    if (props.org) {
         return (
-            <span>
-                Nenhuma
-            </span>
+            <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+String(props.org).replace(',', '')} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                {props.org}
+            </a>
         )
     } else {
         return (
