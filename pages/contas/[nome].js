@@ -60,6 +60,7 @@ export default function Contas(props) {
             )
 
         }
+        console.log(cont)
     }
     return (
         <>
