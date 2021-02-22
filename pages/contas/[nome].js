@@ -1,7 +1,7 @@
 import styles from '../components/styles.module.css'
 import Voltar from '../components/voltar.module'
 import Head from 'next/head'
-import Teste from '../components/teste.module'
+import Org from '../components/org.module'
 
 export async function getStaticPaths() {
     return {
@@ -82,7 +82,7 @@ export default function Contas(props) {
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
                         {props.organizações.map((org) => {
-                            return <Teste org={org}/>
+                            return <Org org={org}/>
                         })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
