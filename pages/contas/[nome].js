@@ -52,7 +52,7 @@ export default function Contas(props) {
     function organizações() {
         while (props.organizações) {
             return (
-                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações[0]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
                     {props.organizações}
                 </a>
             )
