@@ -93,8 +93,12 @@ export default function Contas(props) {
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
                         {props.organizações.forEach((org) => {
-        console.log(org)
-    })}
+                            return (
+                                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+org} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
+                                        {org}
+                                     </a>
+                            )
+                        })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
