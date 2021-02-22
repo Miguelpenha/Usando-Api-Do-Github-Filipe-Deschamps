@@ -80,9 +80,9 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        {props.organizações.map(function(object){
-                            return {object}
-                         })}
+                        {props.organizações.forEach((org) => {
+                            return {org}
+                        })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
