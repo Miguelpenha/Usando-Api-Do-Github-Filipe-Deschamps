@@ -1,6 +1,7 @@
 import styles from '../components/styles.module.css'
 import Voltar from '../components/voltar.module'
 import Head from 'next/head'
+import Teste from '../components/teste.module'
 
 export async function getStaticPaths() {
     return {
@@ -92,15 +93,7 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        {() => {
-                            props.organizações.forEach((org) => {
-                                return (
-                                    <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+org} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
-                                            {org}
-                                         </a>
-                                )
-                            })
-                        }}
+                        <Teste organizações={props.organizações}/>
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
