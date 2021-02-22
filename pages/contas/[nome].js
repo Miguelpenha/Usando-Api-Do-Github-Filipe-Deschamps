@@ -1,7 +1,6 @@
 import styles from '../components/styles.module.css'
 import Voltar from '../components/voltar.module'
 import Head from 'next/head'
-import Teste from '../components/teste.module'
 
 export async function getStaticPaths() {
     return {
@@ -53,18 +52,6 @@ export default function Contas(props) {
     props.organizações.forEach((org) => {
         console.log(org)
     })
-    function organizações() {
-        var enviar
-        for (var cont = 0;cont < props.organizações.length;cont += 1){
-            enviar = (
-                <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações[cont]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
-                    {props.organizações[cont]}
-                    {console.log(cont)}
-                </a>
-            )
-            return enviar
-        }
-    }
     return (
         <>
             <Head>
@@ -93,7 +80,9 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        <Teste organizações={props.organizações}/>
+                        {props.organizações.map(function(object){
+                            return {object}
+                         })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
