@@ -1,6 +1,6 @@
 import styles from '../components/styles.module.css'
-import Link from 'next/link'
 import Voltar from '../components/voltar.module'
+import Head from 'next/head'
 
 export async function getStaticPaths() {
     return {
@@ -49,25 +49,27 @@ export async function getStaticProps(context) {
     }
 }
 export default function Contas(props) {
+    props.organizações.forEach((org) => {
+        console.log(org)
+    })
     function organizações() {
-        var cont = -1
-        while (props.organizações) {
-            cont ++
-            return (
+        var enviar
+        for (var cont = 0;cont < props.organizações.length;cont += 1){
+            enviar = (
                 <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações[cont]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
-                    {props.organizações}
+                    {props.organizações[cont]}
+                    {console.log(cont)}
                 </a>
             )
-
+            return enviar
         }
-        console.log(cont)
     }
     return (
         <>
-            <head>
+            <Head>
                 <link rel="canonical" href="https://usando-api-do-github-filipe-deschamps.vercel.app/" />
                 <title>Conta: {props.nome}</title>
-            </head>
+            </Head>
             <main className={styles.main}>
                 <Voltar cor="black" hover/>
                 <a href={'https://github.com/'+props.nick} target="_blank" rel="external">
@@ -90,7 +92,9 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        {organizações()}
+                        {props.organizações.forEach((org) => {
+        console.log(org)
+    })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
                         <a className={styles.link_conta} href={'https://github.com/'+props.nick} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
