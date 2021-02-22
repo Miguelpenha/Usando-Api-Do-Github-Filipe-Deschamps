@@ -81,7 +81,7 @@ export default function Contas(props) {
                         </a>
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
-                        {props.organizações.forEach((org) => {
+                        {props.organizações.map((org) => {
                             return <Teste org={org}/>
                         })}
                     </h1>
