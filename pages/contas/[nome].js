@@ -82,7 +82,7 @@ export default function Contas(props) {
                     </h1>
                     <h1 className={styles.tit_conta}>Organizações: 
                         {props.organizações.map((org) => {
-                            return <Org org={org}/>
+                            return <Org nick={props.nick} org={org}/>
                         })}
                     </h1>
                     <h1 className={styles.tit_conta}>Começou em:  
