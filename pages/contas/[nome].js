@@ -50,9 +50,6 @@ export async function getStaticProps(context) {
     }
 }
 export default function Contas(props) {
-    props.organizações.forEach((org) => {
-        console.log(org)
-    })
     return (
         <>
             <Head>
