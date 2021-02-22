@@ -1,3 +1,3 @@
 export default function Teste(props) {
-    return <h1>{props.organizações}</h1>
+    return <h1>{typeof(props.organizações)}</h1>
 }
