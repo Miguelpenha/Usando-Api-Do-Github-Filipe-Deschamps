@@ -50,14 +50,15 @@ export async function getStaticProps(context) {
 }
 export default function Contas(props) {
     function organizações() {
-        var cont = 0
+        var cont = -1
         while (props.organizações) {
+            cont ++
             return (
                 <a className={styles.link_conta} href={'https://github.com/'+props.nick+'/'+props.organizações[cont]} target="_blank" rel="external" className={styles.link_conte} style={{textDecoration: 'none'}}>
                     {props.organizações}
                 </a>
             )
-            cont ++
+
         }
     }
     return (
